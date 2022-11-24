@@ -7,11 +7,8 @@ const Navbar = () => {
     const menuItem = (
         <>
          <li> <Link to='/' >Home</Link> </li>
-         <li> <Link to='/' >Engineering Books</Link> </li>
-         <li> <Link to='/' >Medical</Link> </li>
-         <li> <Link to='/' >Competitive Exams Books</Link> </li>
-         <li> <Link to='/' >General Books</Link> </li>
-         <li> <Link to='/' >Login</Link> </li>
+         <li> <Link to='/' >All Books</Link> </li>
+         <li> <Link to='/login' >Login</Link> </li>
          
         </>
     )
@@ -26,23 +23,23 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 uppercase font-serif">
                {
                 menuItem
                }
                
             </ul>
           </div>
-          <Link  to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+          <Link  to='/' className="btn btn-ghost normal-case text-2xl font-serif font-bold">BookBite</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
+          <ul className="menu menu-horizontal p-0 text-xl uppercase font-serif">
             {menuItem}
         
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-ghost">Sell Books +</a>
+          <Link className="btn btn-warning text-white md:text-lg font-serif">Sell Books +</Link>
         </div>
       </div>
     </div>
