@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="h-[800px] flex justify-center items-center">
-      <div className="lg:w-96 border border-black rounded-xl p-10" >
+      <div className="lg:w-96 border border-black rounded-xl p-10 shadow-md" >
         <h2 className="text-4xl text-center font-serif font-bold">Login</h2>
         <form>
           <div className="form-control w-full">
@@ -20,7 +20,7 @@ const Login = () => {
           </div>
           <input  className="w-full btn btn-primary" type="submit" value="Login" />
         </form>
-        <p className="text-lg font-serif my-2" >New to bookbite ? <Link className="text-primary"  to='/signup' >Signup</Link> </p>
+        <p className="text-lg font-serif my-2" >New to bookbite ? <Link className="text-primary"  to='/signup'>Signup</Link> </p>
         <div className="divider">OR</div>
         <button className="btn btn-outline btn-secondary w-full" >Continue with Google</button>
       </div>
