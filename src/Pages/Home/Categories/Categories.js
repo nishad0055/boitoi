@@ -1,9 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import slide1 from '../../../assets/images/2.jpg'
-import slide2 from '../../../assets/images/3.jpg'
-import slide3 from '../../../assets/images/5.jpg'
-import slide4 from '../../../assets/images/images.jpeg'
+import './Category.css'
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,12 +12,18 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 
 const Categories = () => {
     
-    const bookCat = [{
-
-    }]
+      const { data:allCategory =[], } = useQuery({
+        queryKey: ['allCategory'],
+        queryFn: async ()=>{
+           const res = await fetch('http://localhost:5000/category')
+           const data = await res.json()
+           return data
+        }
+      })
 
     return (
         <div className='my-14 container mx-auto' >
@@ -36,25 +39,19 @@ const Categories = () => {
           className="mySwiper"
         >
           
-          <SwiperSlide>
-            <Link to='/login'  className='cursor-pointer' >
-            <img  className='h-96' src={slide2} alt="" />
-            <h2 className='absolute w-full h-full top-0 left-0  text-white text-5xl font-bold flex justify-center items-center   ' >hello</h2>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img  className='h-96' src={slide2} alt="" />
-            <h2 className='absolute w-full h-full top-0 left-0  text-white text-5xl font-bold flex justify-center items-center   ' >hello</h2>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img  className='h-96' src={slide2} alt="" />
-            <h2 className='absolute w-full h-full top-0 left-0  text-white text-5xl font-bold flex justify-center items-center   ' >hello</h2>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img  className='h-96' src={slide2} alt="" />
-            <h2 className='absolute w-full h-full top-0 left-0  text-white text-5xl font-bold flex justify-center items-center   ' >hello</h2>
-          </SwiperSlide>
-          
+         
+       
+             
+         {
+            allCategory.map(category =>  <SwiperSlide key={category.id} >
+              <Link to='/category/id'  className='cursor-pointer' >
+              <img  className='lg:h-96 opac ' src={category.img} alt="" />
+              <h2 className='absolute w-full h-full hero-overlay  top-0 left-0  text-warning lg:text-4xl font-bold flex justify-center items-center' >{category.name} </h2>
+              </Link>
+            </SwiperSlide> )
+           }
+         
+
           
         </Swiper>
       </>
