@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu } from 'react-icons/fi'
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import logo from '../../assets/images/Boitoi-logos_transparent.png'
 
 const Navbar = () => {
    
@@ -18,7 +19,7 @@ const Navbar = () => {
     const menuItem = (
         <>
          <li> <Link to='/' >Home</Link> </li>
-         <li> <Link to='/' >All Books</Link> </li>
+         <li> <Link to='/allbooks' >All Books</Link> </li>
 
          {
           user?.uid ?
@@ -51,7 +52,7 @@ const Navbar = () => {
                
             </ul>
           </div>
-          <Link  to='/' className="btn btn-ghost normal-case text-2xl font-serif font-bold">Boitoi</Link>
+          <Link  to='/' className="btn btn-ghost normal-case text-2xl font-serif font-bold"> <img src= {logo} className='w-40' alt="" /> </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0 text-xl uppercase font-serif">
@@ -60,7 +61,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn btn-warning text-white md:text-lg font-serif">Sell Books +</Link>
+          <Link to='/signup' className="btn btn-warning text-white md:text-lg font-serif">Sell Books +</Link>
         </div>
       </div>
     </div>

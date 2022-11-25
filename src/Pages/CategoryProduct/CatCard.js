@@ -2,7 +2,7 @@ import React from 'react';
 import { GrLocation, GrUser } from 'react-icons/gr'
 import { MdAccessTime } from 'react-icons/md'
 
-const CatCard = ({items}) => {
+const CatCard = ({items , setBooking }) => {
     const {condition, img, orginalPrice, phoneNumber, purchaseDate, salePrice,title, location, description , name, postDate, } = items
     return (
         <div>
@@ -24,7 +24,7 @@ const CatCard = ({items}) => {
                         <small>{postDate}</small>
                     </div>
                     <div className="card-actions justify-center w-full">
-                        <button className="btn btn-primary">Book</button>
+                    <label onClick={()=>setBooking(items)} htmlFor="booking-modal" className="btn">open modal</label>
                     </div>
                 </div>
             </div>

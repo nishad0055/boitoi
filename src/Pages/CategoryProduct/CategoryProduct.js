@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from '../BookingModal/BookingModal';
 import CatCard from './CatCard';
 
 const CategoryProduct = () => {
   const  categoryItem = useLoaderData()
+  const [booking, setBooking] = useState(null)
   console.log(categoryItem)
     return (
         <div className='my-16' >
@@ -12,9 +14,16 @@ const CategoryProduct = () => {
                 categoryItem.map(items =><CatCard
                 key={items._id}
                 items = {items}
+                setBooking = {setBooking}
                 ></CatCard>)
               }
             </div>
+            {
+                booking && 
+                <BookingModal
+                booking = {booking}
+                ></BookingModal>
+            }
         </div>
     );
 };
