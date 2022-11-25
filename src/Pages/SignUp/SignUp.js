@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../../React-Projects/doctors-portal-client/src/Context/UserContext/UserContext";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+
 
 const SignUp = () => {
     
@@ -19,6 +21,8 @@ const SignUp = () => {
       .then(result =>{
         const user =result.user;
         console.log(user)
+        toast.success('user created successfully')
+        
       })
       .catch(error=>console.log(error))
 

@@ -1,3 +1,4 @@
+import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import Main from "../../Layouts/Main";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -16,7 +17,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/signup', element: <SignUp></SignUp>
-            } 
+            } ,
+            {
+                path: '/add-product', element: <AddProduct></AddProduct>
+            }
         ]
     }
 ])

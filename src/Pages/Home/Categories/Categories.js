@@ -44,7 +44,7 @@ const Categories = () => {
              
          {
             allCategory.map(category =>  <SwiperSlide key={category.id} >
-              <Link to='/category/id'  className='cursor-pointer' >
+              <Link to={`/category/${category.name}`}  className='cursor-pointer' >
               <img  className='lg:h-96 opac ' src={category.img} alt="" />
               <h2 className='absolute w-full h-full hero-overlay  top-0 left-0  text-warning lg:text-4xl font-bold flex justify-center items-center' >{category.name} </h2>
               </Link>
