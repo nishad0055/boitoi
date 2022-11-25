@@ -21,7 +21,7 @@ const AddProduct = () => {
                 const products = {
                     condition: event.target.condition.value,
                     title: event.target.title.value,
-                    category: event.target.option.value,
+                    categoryId: event.target.option.value,
                     orginalPrice: parseInt(event.target.mrp.value),
                     salePrice: parseInt(event.target.sellPrice.value),
                     purchaseDate: event.target.date.value,
@@ -30,7 +30,7 @@ const AddProduct = () => {
                     location: event.target.location.value,
                     description: event.target.description.value,
                 }
-
+              console.log(products)
                 fetch('http://localhost:5000/products',{
                     method:'POST',
                     headers: {
@@ -79,11 +79,11 @@ const AddProduct = () => {
                         <span className="label-text">Select Category</span>
                     </label>
                     <select name='option' className="select select-bordered">
-                        <option value='engineeringBooks' >Engineering Books</option>
-                        <option value='medicalBooks' >Medical Books</option>
-                        <option value='lawsBooks'>Laws Books</option>
-                        <option value='competivieBooks'>Competitive Exam Books</option>
-                        <option value='generalBooks' >General Books</option>
+                        <option value='01' >Engineering Books</option>
+                        <option value='02' >Medical Books</option>
+                        <option value='03'>Laws Books</option>
+                        <option value='04'>Competitive Exam Books</option>
+                        <option value='05' >General Books</option>
                     </select>
                 </div>
                 <div className="form-control w-full ">

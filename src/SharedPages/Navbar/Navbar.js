@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu } from 'react-icons/fi'
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+   
+   const {user, userLogout} = useContext(AuthContext)
+
+   const handleLogout = () =>{
+    
+      userLogout()
+      .then(()=>{})
+      .catch(()=>{})
+
+   }
 
     const menuItem = (
         <>
          <li> <Link to='/' >Home</Link> </li>
          <li> <Link to='/' >All Books</Link> </li>
-         <li> <Link to='/login' >Login</Link> </li>
-         <li> <Link to='/add-product' >Add Product</Link> </li>
+
+         {
+          user?.uid ?
+          <>
+             <li> <Link to='/add-product' >Add Product</Link> </li>
+             <li  > <Link  onClick={handleLogout} >Sign Out</Link> </li>
+          </>:
+          <li> <Link  to='/login' >Login</Link> </li>
+         }
+         
+        
          
         </>
     )
