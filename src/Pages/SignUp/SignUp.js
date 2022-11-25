@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../React-Projects/doctors-portal-client/src/Context/UserContext/UserContext";
 
 const SignUp = () => {
-
+    
+    const {createUser} = useContext(AuthContext)
     const handleSignUp = event =>{
         event.preventDefault();
 
@@ -13,7 +15,12 @@ const SignUp = () => {
         const password= form.password.value;
 
         console.log(role, name, email, password)
-
+      createUser(email, password)
+      .then(result =>{
+        const user =result.user;
+        console.log(user)
+      })
+      .catch(error=>console.log(error))
 
     }
 
