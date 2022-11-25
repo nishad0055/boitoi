@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const SignUp = () => {
     
-    const {createUser} = useContext(AuthContext)
+    const {createUser , updateUser} = useContext(AuthContext)
     const handleSignUp = event =>{
         event.preventDefault();
 
@@ -22,6 +22,12 @@ const SignUp = () => {
         const user =result.user;
         console.log(user)
         toast.success('user created successfully')
+        const userInfo = {
+          displayName: name
+        }
+        updateUser(userInfo)
+        .then(()=>{})
+        .catch(e=> console.log(e))
         
       })
       .catch(error=>console.log(error))

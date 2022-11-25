@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { format } from 'date-fns';
 
 const AddProduct = () => {
 
-    
+    const [selectedDate, setSelectedDate] = useState(new Date())
+    const {user} = useContext(AuthContext)
    
     const handleProduct = event =>{
             event.preventDefault();
@@ -20,6 +23,7 @@ const AddProduct = () => {
             .then(data => {
                 const products = {
                     condition: event.target.condition.value,
+                    name: user.displayName,
                     title: event.target.title.value,
                     categoryId: event.target.option.value,
                     orginalPrice: parseInt(event.target.mrp.value),
@@ -29,6 +33,7 @@ const AddProduct = () => {
                     phoneNumber: event.target.phone.value,
                     location: event.target.location.value,
                     description: event.target.description.value,
+                    postDate: event.target.Date.value,
                 }
               console.log(products)
                 fetch('http://localhost:5000/products',{
@@ -66,6 +71,11 @@ const AddProduct = () => {
                 <label>Used</label>
                 <input className='ml-2 mr-2' name='condition' type="radio" value="new" />
                 <label>New</label>
+                
+                <div className="form-control w-full">
+                    
+                    <input type="text" name='Date'  value= {format(selectedDate,'PP')}  disabled className="input input-bordered w-full" />
+                </div>
 
                 <div className="form-control w-full">
                     <label className="label">
@@ -100,9 +110,9 @@ const AddProduct = () => {
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
-                        <span className="label-text">Year Purchase</span>
+                        <span className="label-text">Year Of Use</span>
                     </label>
-                    <input type="date" name='date' placeholder="price" className="input input-bordered w-full" />
+                    <input type="text" name='date' placeholder="year of use/months" className="input input-bordered w-full" />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
