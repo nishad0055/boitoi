@@ -7,7 +7,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
-                    <img src={logo} className='w-40' alt="" />
+                    <img src={logo} className='w-48' alt="" />
                     <p>Boitoi.com is the largest online used book resale platform <br/>Energistically redefine multidisciplinary experiences whereas <br /> mission-critical potentialities. Energistically grow fully tested catalysts for.</p>
                 </div>
                 <div>

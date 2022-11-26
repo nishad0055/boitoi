@@ -19,7 +19,7 @@ const Navbar = () => {
     const menuItem = (
         <>
          <li> <Link to='/' >Home</Link> </li>
-         <li> <Link to='/allbooks' >All Books</Link> </li>
+         <li> <Link to='/blog' >Blogs</Link> </li>
 
          {
           user?.uid ?
