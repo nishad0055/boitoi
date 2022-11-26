@@ -1,13 +1,15 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
-   const {userLogin} = useContext(AuthContext)
+   const {userLogin , googleSignIn} = useContext(AuthContext)
    const [loginError, setLoginError] = useState('')
    const location = useLocation();
    const navigate = useNavigate();
    const from = location.state?.from.pathname || '/'
+   const provider = new GoogleAuthProvider()
    const handleLogin = event =>{
     event.preventDefault();
     const form = event.target;
@@ -25,8 +27,14 @@ const Login = () => {
     .catch(error=> {
       setLoginError(error.message)
     })
-    
-   }
+ 
+  }
+
+  const  handleGoogle = ()=>{
+    googleSignIn(provider)
+    .then(()=>{})
+    .catch(()=>{})
+  }
     
 
   return (
@@ -50,7 +58,7 @@ const Login = () => {
         {loginError && <p className="text-red-500" >{loginError}</p>}
         <p className="text-lg font-serif my-2" >New to bookbite ? <Link className="text-primary"  to='/signup'>Signup</Link> </p>
         <div className="divider">OR</div>
-        <button className="btn btn-outline btn-secondary w-full" >Continue with Google</button>
+        <button onClick={handleGoogle} className="btn btn-outline btn-secondary w-full" >Continue with Google</button>
       </div>
     </div>
   );
