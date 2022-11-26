@@ -94,6 +94,7 @@ const AddProduct = () => {
                         <option value='03'>Laws Books</option>
                         <option value='04'>Competitive Exam Books</option>
                         <option value='05' >General Books</option>
+                        <option value='06' >Nobel & Fiction</option>
                     </select>
                 </div>
                 <div className="form-control w-full ">

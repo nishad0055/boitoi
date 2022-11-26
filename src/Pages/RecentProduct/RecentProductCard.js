@@ -1,12 +1,13 @@
 import React from 'react';
 import { GrLocation, GrUser } from 'react-icons/gr'
 import { MdAccessTime } from 'react-icons/md'
+import { Link } from 'react-router-dom';
 
-const CatCard = ({items , setBooking }) => {
-    const {condition, img, orginalPrice, phoneNumber, purchaseDate, salePrice,title, location, description , name, postDate, } = items
+const RecentProductCard = ({product}) => {
+    const {condition, img, orginalPrice, phoneNumber, purchaseDate, salePrice,title, location, description , name, postDate, categoryId } = product
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-sm">
                 <figure><img className='h-80' src= {img} alt="Shoes" />
                 </figure>
                 <div className="card-body">
@@ -24,7 +25,7 @@ const CatCard = ({items , setBooking }) => {
                         <small>{postDate}</small>
                     </div>
                     <div className="card-actions justify-center w-full">
-                    <label onClick={()=>setBooking(items)} htmlFor="booking-modal" className="btn btn-warning">Book Now</label>
+                    <Link to ={`/cat/${categoryId}`} className="btn btn-warning">Book Now</Link>
                     </div>
                 </div>
             </div>
@@ -32,4 +33,4 @@ const CatCard = ({items , setBooking }) => {
     );
 };
 
-export default CatCard;
+export default RecentProductCard;
