@@ -37,7 +37,7 @@ const Sellers = () => {
                                     <td> {user.email} </td>
                                     <td>{user.role} </td>
                                     <td><button  className='btn btn-outline btn-sm' >Verify</button> </td>
-                                    <td><button  className='btn btn-outline btn-sm' >Delete</button> </td>
+                                    <td><button  className='btn btn-outline btn-sm' >X</button> </td>
                                 </tr>)
                          }
                            

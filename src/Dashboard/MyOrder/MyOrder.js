@@ -2,7 +2,7 @@ import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import MyOrderTable from './MyOrderTable';
+
 
 const MyOrder = () => {
     const { user } = useContext(AuthContext)
@@ -40,7 +40,7 @@ const MyOrder = () => {
                                 <th>{i+1}</th>
                                 <td>{book.productName} </td>
                                 <td> {book.price} </td>
-                                <td> <button>Pay</button> </td>
+                                <td> <button className='btn btn-sm' >Pay</button> </td>
                             </tr>
                             )
                        }

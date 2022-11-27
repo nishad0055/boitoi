@@ -52,7 +52,7 @@ const AllUsers = () => {
                                     <td> {user.email} </td>
                                     <td>{user.role} </td>
                                     <td> { user.role !== 'admin' && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-outline btn-sm' >make admin</button>  } </td>
-                                    <td >x</td>
+                                    <td > <button className='btn btn-sm' >X</button> </td>
                                 </tr>)
                          }
                            

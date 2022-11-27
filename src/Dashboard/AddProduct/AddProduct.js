@@ -34,6 +34,7 @@ const AddProduct = () => {
                     location: event.target.location.value,
                     description: event.target.description.value,
                     postDate: event.target.Date.value,
+                    email: user.email
                 }
               console.log(products)
                 fetch('http://localhost:5000/products',{
@@ -64,8 +65,8 @@ const AddProduct = () => {
     return (
         <div className='container mx-auto flex justify-center items-center my-16'>
             
-            <form onSubmit={handleProduct}  className='lg:w-1/2  border p-5'>
-                <h2 className='text-4xl text-center my-2' >Add Product</h2>
+            <form onSubmit={handleProduct}  className='lg:w-2/3 shadow-md  border rounded-lg p-5'>
+                <h2 className='text-4xl font-serif text-center my-2' >Add Product</h2>
                 <h2>Select Condition</h2>
                 <input className='mr-2' name='condition' type="radio" value="used" required />
                 <label>Used</label>
@@ -140,8 +141,8 @@ const AddProduct = () => {
                     </label>
                     <textarea name='description' className="textarea textarea-bordered h-24" placeholder="Product Description" required></textarea>
                 </div>
-                <div className='flex justify-end my-3' >
-                <input  className='btn  btn-lg btn-primary' type="submit" value="Submit" />
+                <div className=' my-3' >
+                <input  className='btn btn-warning w-full' type="submit" value="Submit" />
                 </div>
 
             </form>

@@ -2,6 +2,7 @@ import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import AllUsers from "../../Dashboard/AllUser/AllUsers";
 import Dashboard from "../../Dashboard/Dashboard";
 import MyOrder from "../../Dashboard/MyOrder/MyOrder";
+import SellerAddedProduct from "../../Dashboard/SellerAddedProduct/SellerAddedProduct";
 import Sellers from "../../Dashboard/Sellers/Sellers";
 import DashboardLayout from "../../Layouts/DashboardLayout";
 import Main from "../../Layouts/Main";
@@ -45,14 +46,18 @@ export const router = createBrowserRouter([
                 path: '/dashboard/myorder', element: <MyOrder></MyOrder>
             },
             {
+                path: 'dashboard/add-product', element: <AddProduct></AddProduct>
+            },
+            {
                 path: '/dashboard/allusers', element: <AdminRoutes><AllUsers></AllUsers></AdminRoutes>
             },
             {
                 path: '/dashboard/sellers', element: <AdminRoutes><Sellers></Sellers></AdminRoutes>
             },
             {
-                path: 'dashboard/add-product', element: <AddProduct></AddProduct>
-            },
+                path: '/dashboard/seller/product' , element: <SellerAddedProduct></SellerAddedProduct>
+            }
+           
         ]
     }
 ])
