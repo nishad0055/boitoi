@@ -24,7 +24,7 @@ const Navbar = () => {
          {
           user?.uid ?
           <>
-             <li> <Link to='/add-product' >Add Product</Link> </li>
+             <li> <Link to='/dashboard' >Dashboard</Link> </li>
              <li  > <Link  onClick={handleLogout} >Sign Out</Link> </li>
           </>:
           <li> <Link  to='/login' >Login</Link> </li>
@@ -45,17 +45,17 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 uppercase font-serif">
+           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52  uppercase font-serif">
                {
                 menuItem
                }
                
             </ul>
           </div>
-          <Link  to='/' className="btn btn-ghost normal-case text-2xl font-serif font-bold"> <img src= {logo} className='w-40' alt="" /> </Link>
+          <Link  to='/' className="btn btn-ghost normal-case text-2xl font-serif font-bold"> <img src= {logo} className='w-28 lg:w-40' alt="" /> </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0 text-xl uppercase font-serif">
+          <ul className="menu menu-horizontal p-0 uppercase font-serif text-md">
             {menuItem}
         
           </ul>

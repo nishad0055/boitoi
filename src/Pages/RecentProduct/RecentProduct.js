@@ -14,7 +14,7 @@ const RecentProduct = () => {
     return (
         <div className='my-16 mx-2' >
             <div>
-                 <h2 className='text-3xl font-serif font-bold my-8' >Recently Added Product</h2>
+                 <h2 className='text-2xl font-serif font-bold my-8' >Recently Added Product</h2>
                  <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 ' >
                     {
                         allproduct.slice(0,6).map(product =><RecentProductCard

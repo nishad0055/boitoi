@@ -23,23 +23,44 @@ const SignUp = () => {
         const email = form.email.value;
         const password= form.password.value;
 
-        console.log(role, name, email, password)
       createUser(email, password)
       .then(result =>{
         const user =result.user;
         console.log(user)
         toast.success('user created successfully')
-        event.target.reset()
-        navigate(from,{replace:true})
+        
+        
         const userInfo = {
           displayName: name
         }
         updateUser(userInfo)
-        .then(()=>{})
+        .then(()=>{
+          
+          event.target.reset()
+        })
         .catch(e=> console.log(e))
         
       })
       .catch(error=>console.log(error))
+
+      const users = {
+        name: name,
+        role: role,
+        email: email,
+      }
+      
+      fetch('http://localhost:5000/users',{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(users)
+      })
+      .then(res => res.json())
+      .then( data =>{
+         console.log(data)
+         navigate(from,{replace:true})
+      })
 
     }
 
@@ -48,6 +69,8 @@ const SignUp = () => {
       .then(()=>{})
       .catch(()=>{})
     }
+
+   
 
   return (
     <div className="h-[800px] flex justify-center items-center my-10">
@@ -62,6 +85,7 @@ const SignUp = () => {
               name="role"
               type="radio"
               value="seller"
+              required
             />
             <h2 className="text-md font-semibold font-serif" >SELLER</h2>
              </div>
@@ -70,7 +94,7 @@ const SignUp = () => {
               className=" h-[20px] w-[20px]"
               name="role"
               type="radio"
-              value="user"/>
+              value="user" required />
             <h2 className="text-md font-semibold font-serif" >USER</h2>
               </div>
           </div>

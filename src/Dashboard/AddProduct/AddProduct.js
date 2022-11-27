@@ -67,9 +67,9 @@ const AddProduct = () => {
             <form onSubmit={handleProduct}  className='lg:w-1/2  border p-5'>
                 <h2 className='text-4xl text-center my-2' >Add Product</h2>
                 <h2>Select Condition</h2>
-                <input className='mr-2' name='condition' type="radio" value="used" />
+                <input className='mr-2' name='condition' type="radio" value="used" required />
                 <label>Used</label>
-                <input className='ml-2 mr-2' name='condition' type="radio" value="new" />
+                <input className='ml-2 mr-2' name='condition' type="radio" value="new" required />
                 <label>New</label>
                 
                 <div className="form-control w-full">
@@ -81,7 +81,7 @@ const AddProduct = () => {
                     <label className="label">
                         <span className="label-text">Product Title</span>
                     </label>
-                    <input type="text" name='title' placeholder="Title" className="input input-bordered w-full" />
+                    <input type="text" name='title' placeholder="Title" className="input input-bordered w-full" required />
                 </div>
 
                 <div className="form-control w-full">
@@ -101,44 +101,44 @@ const AddProduct = () => {
                     <label className="label">
                         <span className="label-text">Orginal Price</span>
                     </label>
-                    <input type="text" name='mrp' placeholder="price" className="input input-bordered w-full" />
+                    <input type="text" name='mrp' placeholder="price" className="input input-bordered w-full"  required/>
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Sale Price</span>
                     </label>
-                    <input type="text" name='sellPrice' placeholder="price" className="input input-bordered w-full" />
+                    <input type="text" name='sellPrice' placeholder="price" className="input input-bordered w-full" required />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Year Of Use</span>
                     </label>
-                    <input type="text" name='date' placeholder="year of use/months" className="input input-bordered w-full" />
+                    <input type="text" name='date' placeholder="year of use/months" className="input input-bordered w-full" required />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Upload Image</span>
                     </label>
-                    <input type="file" name='image' accept='image/*' className="input input-bordered w-full" />
+                    <input type="file" name='image' accept='image/*' className="input input-bordered w-full" required />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Mobile Number</span>
                     </label>
-                    <input type="text" name='phone' placeholder="Phone number" className="input input-bordered w-full" />
+                    <input type="text" name='phone' placeholder="Phone number" className="input input-bordered w-full" required  />
                 </div>
                 <div className="form-control w-full ">
                     <label className="label">
                         <span className="label-text">Location</span>
                     </label>
-                    <input type="text" name='location' placeholder="Location" className="input input-bordered w-full" />
+                    <input type="text" name='location' placeholder="Location" className="input input-bordered w-full" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Product Description</span>
                         
                     </label>
-                    <textarea name='description' className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+                    <textarea name='description' className="textarea textarea-bordered h-24" placeholder="Product Description" required></textarea>
                 </div>
                 <div className='flex justify-end my-3' >
                 <input  className='btn  btn-lg btn-primary' type="submit" value="Submit" />
