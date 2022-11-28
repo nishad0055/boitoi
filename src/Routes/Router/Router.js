@@ -2,6 +2,7 @@ import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import AllUsers from "../../Dashboard/AllUser/AllUsers";
 import Dashboard from "../../Dashboard/Dashboard";
 import MyOrder from "../../Dashboard/MyOrder/MyOrder";
+import ReportedProduct from "../../Dashboard/ReportedProduct/ReportedProduct";
 import SellerAddedProduct from "../../Dashboard/SellerAddedProduct/SellerAddedProduct";
 import Sellers from "../../Dashboard/Sellers/Sellers";
 import DashboardLayout from "../../Layouts/DashboardLayout";
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
             
             {
                 path: '/cat/:id', element: <PrivateRoute><CategoryProduct></CategoryProduct></PrivateRoute> ,
-               loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+               loader: ({params}) => fetch(`https://book-reselling-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/blog', element: <Blog></Blog>
@@ -56,6 +57,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/seller/product' , element: <SellerAddedProduct></SellerAddedProduct>
+            },
+            {
+                path: '/dashboard/reported-product', element: <ReportedProduct></ReportedProduct>
             }
            
         ]

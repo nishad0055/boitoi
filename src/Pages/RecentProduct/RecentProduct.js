@@ -3,10 +3,10 @@ import React from 'react';
 import RecentProductCard from './RecentProductCard';
 
 const RecentProduct = () => {
-    const {data: allproduct=[],} = useQuery({
+    const {data: allproduct=[], refetch} = useQuery({
         queryKey: ['allproduct'],
         queryFn: async()=>{
-            const res = await fetch('http://localhost:5000/allproduct')
+            const res = await fetch('https://book-reselling-server.vercel.app/allproduct')
             const data = res.json()
             return data
         }
@@ -20,6 +20,7 @@ const RecentProduct = () => {
                         allproduct.slice(0,6).map(product =><RecentProductCard
                         key={product._id}
                         product = {product}
+                        refetch = {refetch}
                         ></RecentProductCard>)
                     }
                  </div>

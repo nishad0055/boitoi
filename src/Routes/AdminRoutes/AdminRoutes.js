@@ -8,7 +8,7 @@ const AdminRoutes = ({children}) => {
     const [isAdmin, isAdminLoading] = useAdmin(user?.email)
     const location = useLocation()
     if(loading || isAdminLoading){
-        return <div class="w-10 h-10 border-b-2 border-gray-900 rounded-full animate-spin"></div>
+        return <div class="flex justify-center items center w-10 h-10 border-b-2 border-gray-900 rounded-full animate-spin"></div>
     }
 
    

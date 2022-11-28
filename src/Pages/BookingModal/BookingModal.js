@@ -16,7 +16,7 @@ const BookingModal = ({ booking , setBooking}) => {
             phone: event.target.phone.value,
             mettingLocation: event.target.location.value,
         }
-        fetch('http://localhost:5000/bookedItem', {
+        fetch('https://book-reselling-server.vercel.app/bookedItem', {
             method:'POST',
             headers: {
                 'content-type': 'application/json'

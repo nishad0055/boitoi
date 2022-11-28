@@ -60,9 +60,13 @@ const Navbar = () => {
         
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to='/signup' className="btn btn-warning text-white md:text-lg font-serif">Sell Books +</Link>
+        
+        <div className="navbar-end invisible lg:visible ">
+          <Link to='/signup' className="btn btn-warning  text-white md:text-lg font-serif">Sell Books +</Link>
         </div>
+        <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+              <FiMenu size={30} />
+        </label>
       </div>
     </div>
   );

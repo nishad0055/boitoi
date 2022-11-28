@@ -3,10 +3,14 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { format } from 'date-fns';
 
+
 const AddProduct = () => {
 
     const [selectedDate, setSelectedDate] = useState(new Date())
     const {user} = useContext(AuthContext)
+   
+    
+    
    
     const handleProduct = event =>{
             event.preventDefault();
@@ -34,10 +38,13 @@ const AddProduct = () => {
                     location: event.target.location.value,
                     description: event.target.description.value,
                     postDate: event.target.Date.value,
-                    email: user.email
+                    email: user.email,
+                 
+                  
+                    
                 }
               console.log(products)
-                fetch('http://localhost:5000/products',{
+                fetch('https://book-reselling-server.vercel.app/products',{
                     method:'POST',
                     headers: {
                         'content-type': 'application/json'

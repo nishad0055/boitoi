@@ -1,27 +1,46 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AllUsers = () => {
 
     const {data: allusers=[], refetch } = useQuery({
         queryKey: ['allusers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allusers')
+            const res = await fetch('https://book-reselling-server.vercel.app/allusers')
             const data = await res.json()
             return data
         }
     })
     const handleMakeAdmin =(id)=>{
-        fetch(`http://localhost:5000/allusers/admin/${id}`,{
+        fetch(`https://book-reselling-server.vercel.app/allusers/admin/${id}`,{
             method: 'PUT', 
         })
         .then(res=> res.json())
         .then(data =>{
-            console.log(data)
+            
             if(data.modifiedCount >0){
                 refetch()
             }
         })
+    }
+
+    const handleUserDelete =(_id)=>{
+        
+        const confirm = window.confirm('Are you want to delete a user')
+
+       if(confirm) {
+        fetch(`https://book-reselling-server.vercel.app/users/${_id}`,{
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data.deletedCount > 0){
+                toast.success('User deleted successfull')
+                refetch()
+            }
+        })
+       }
     }
 
 
@@ -30,7 +49,7 @@ const AllUsers = () => {
             <h2 className="text-2xl">All User</h2>
             <div>
                 <div className="overflow-x-auto">
-                    <table className="table w-full">
+                    <table className="table table-responsive w-full">
                        
                         <thead>
                             <tr>
@@ -52,7 +71,7 @@ const AllUsers = () => {
                                     <td> {user.email} </td>
                                     <td>{user.role} </td>
                                     <td> { user.role !== 'admin' && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-outline btn-sm' >make admin</button>  } </td>
-                                    <td > <button className='btn btn-sm' >X</button> </td>
+                                    <td > <button onClick={()=>handleUserDelete(user._id)} className='btn btn-sm' >X</button> </td>
                                 </tr>)
                          }
                            

@@ -1,17 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
 import { GrLocation, GrUser } from 'react-icons/gr'
 import { MdAccessTime } from 'react-icons/md'
 import { Link } from 'react-router-dom';
 
+const FeatureCard = ({items}) => {
+    const {condition, img, orginalPrice, phoneNumber, purchaseDate, salePrice,title, location, description , name, postDate, _id , report ,categoryId} = items;
 
-
-
-const CatCard = ({items , setBooking }) => {
-    
-    const {condition, img, orginalPrice, phoneNumber, purchaseDate, salePrice,title, location, description , name, postDate, _id , report} = items;
-    
-     const handleReported = _id =>{
+    const handleReported = _id =>{
 
         fetch(`https://book-reselling-server.vercel.app/allproduct/${_id}`, {
             method: 'PUT',
@@ -30,8 +26,8 @@ const CatCard = ({items , setBooking }) => {
 
     return (
         <div>
-            <div className="card  bg-base-100 shadow-lg">
-                <figure><img className='lg:h-80' src= {img} alt="Shoes" />
+            <div className="card lg:card-side bg-base-100 shadow-xl">
+            <figure><img className='lg:h-80' src= {img} alt="Shoes" />
                 
                 </figure>
                 <div className="card-body font-serif">
@@ -52,7 +48,7 @@ const CatCard = ({items , setBooking }) => {
                         
                     </div>
                     <div className="card-actions flex justify-between items-center my-2">
-                    <label onClick={()=>setBooking(items)} htmlFor="booking-modal" className="btn btn-warning">Book Now</label>
+                   <Link className='btn btn-warning' to= {`/cat/${categoryId}`} >Book</Link>
                     {
                        report ?
                        <button className='btn-disabled' >Reported</button> :
@@ -65,4 +61,4 @@ const CatCard = ({items , setBooking }) => {
     );
 };
 
-export default CatCard;
+export default FeatureCard;
