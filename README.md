@@ -22,6 +22,7 @@
 - react-hot-taost
 - react-icons
 - swiper js
+## Server-side: https://github.com/nishad0055/boitoi-server
 ## Live-Link: https://boitoi-auth.web.app
 
 
