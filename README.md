@@ -1,3 +1,6 @@
+## Server-side: https://github.com/nishad0055/boitoi-server
+## Live-Link: https://boitoi-auth.web.app
+
 ## Topic: used book buy & sell web application.
 - I have Full stack react based web application buy sell second hand book.
 - Here a user can make product booking after creating an account.
@@ -22,8 +25,7 @@
 - react-hot-taost
 - react-icons
 - swiper js
-## Server-side: https://github.com/nishad0055/boitoi-server
-## Live-Link: https://boitoi-auth.web.app
+
 
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
